@@ -1,3 +1,3 @@
 import Login from "./login/Login";
-import Map from "./map/Map";
-export { Login, Map };
+import Pokemons from "./pokemons/Pokemons";
+export { Login, Pokemons };

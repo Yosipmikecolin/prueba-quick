@@ -1,0 +1,92 @@
+.container-not-found-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-not-found-elements {
+  display: flex;
+  gap: 40px;
+  width: 900px;
+}
+
+.image {
+  width: 500px;
+  height: 500px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.box > h1 {
+  font-size: 60px;
+  font-family: "Poppins-Bold";
+}
+
+.box > p {
+  font-size: 40px;
+  color: #a2a7ac;
+  font-family: "Poppins-Regular";
+}
+
+.box > button {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  width: 150px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-family: "Poppins-Regular";
+  display: flex;
+  gap: 10px;
+  transition: 500ms ease;
+}
+
+.box > button:hover {
+  background-color: rgb(68, 67, 67);
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 959px) {
+  .container-not-found-elements {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+  }
+
+  .image {
+    width: 300px;
+    height: 300px;
+  }
+
+  .box > button,
+  .image {
+    margin: auto;
+  }
+}
+
+@media (max-width: 353px) {
+  .container-not-found-elements {
+    padding: 10px;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+  }
+  .box > h1 {
+    font-size: 40px;
+  }
+
+  .box > p {
+    font-size: 18px;
+  }
+}

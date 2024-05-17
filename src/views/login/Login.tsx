@@ -5,8 +5,12 @@ import classes from "./Login.module.css";
 import { Inputs } from "../../interfaces";
 import toast, { Toaster } from "react-hot-toast";
 import { SchemaLogin } from "../../schemas";
+import { useAuth } from "../../hooks";
+import { useNavigate } from "react-router";
 
 const Login = () => {
+  const { setUser } = useAuth();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -17,6 +21,9 @@ const Login = () => {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     if (data.username === "quick" && data.password === "12345") {
+      setUser(true);
+      localStorage.setItem("user", JSON.stringify(true));
+      navigate("/pokemons");
     } else {
       toast.error("El usuario o contraseña es incorrecta");
     }
