@@ -24,21 +24,14 @@ function App() {
         <Spiner />
       ) : (
         <Routes>
-          <Route
-            element={
-              <PrivateRoute isAuthenticated={user} isLoginComponent={true} />
-            }
-          >
+          <Route element={ <PrivateRoute isAuthenticated={user} isLoginComponent={true} />}>
             <Route path="/" element={<Login />} />
           </Route>
 
-          <Route
-            element={
-              <PrivateRoute isAuthenticated={user} isLoginComponent={false} />
-            }
-          >
+          <Route element={ <PrivateRoute isAuthenticated={user} isLoginComponent={false} />}>
             <Route path="/pokemons" element={<Pokemons />} />
           </Route>
+          
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       )}
