@@ -1,10 +1,10 @@
-import classes from "./NotFoundPage.module.css";
+import { useNavigate } from "react-router";
 
 //@ts-ignore
-import ImageNotFound from "../../assets/not-found.png";
+import ImageNotFound from "/public/images/not-found.png";
 //@ts-ignore
-import IconLeft from "../../assets/icon-left.png";
-import { useNavigate } from "react-router";
+import IconLeft from "/public/images/icon-left.png";
+import classes from "./NotFoundPage.module.css";
 
 const NotFoundPage = () => {
   const navigate = useNavigate();

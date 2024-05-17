@@ -65,3 +65,17 @@
   font-size: 12px;
   margin-top: 5px;
 }
+
+/* MEDIA QUERIES */
+
+@media (max-width: 504px) {
+  .container-login {
+    padding: 20px;
+    width: auto;
+  }
+
+  .form-login {
+    width: 100%;
+    text-align: center;
+  }
+}
