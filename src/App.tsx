@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router";
 import { Login, Pokemons } from "./views";
 import { useAuth } from "./hooks";
-import { NotFoundPage, PrivateRoute } from "./components";
+import { NotFoundPage, PrivateRoute, Spiner } from "./components";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -21,11 +21,22 @@ function App() {
   return (
     <main>
       {loading ? (
-        <h1>Cargando</h1>
+        <Spiner />
       ) : (
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route element={<PrivateRoute isAuthenticated={user} />}>
+          <Route
+            element={
+              <PrivateRoute isAuthenticated={user} isLoginComponent={true} />
+            }
+          >
+            <Route path="/" element={<Login />} />
+          </Route>
+
+          <Route
+            element={
+              <PrivateRoute isAuthenticated={user} isLoginComponent={false} />
+            }
+          >
             <Route path="/pokemons" element={<Pokemons />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
