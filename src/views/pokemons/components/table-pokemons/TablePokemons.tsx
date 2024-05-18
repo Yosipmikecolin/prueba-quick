@@ -59,7 +59,7 @@ const TablePokemons = ({
           className={classes["button-map"]}
           onClick={() => handleZoomToLocation(params.row.lat, params.row.lng)}
         >
-          <img src={IconEye} width={20} height={20} />
+          <img src={IconEye} width={20} height={20} alt="icon-eye"/>
         </button>
       ),
     },
@@ -69,7 +69,7 @@ const TablePokemons = ({
       headerName: "Imagen",
       width: 150,
       renderCell: (params) => (
-        <img src={params.row.image} width={50} height={50} />
+        <img src={params.row.image} width={50} height={50} alt="icon-image"/>
       ),
     },
   ];
@@ -104,13 +104,13 @@ const TablePokemons = ({
           }
           onClick={handlePrevPage}
         >
-          <img src={IconLeft} width={30} />
+          <img src={IconLeft} width={30} alt="icon-left"/>
         </button>
         <button
           className={classes["button-pagination"]}
           onClick={handleNextPage}
         >
-          <img src={IconLeft} width={30} />
+          <img src={IconLeft} width={30} alt="icon-right"/>
         </button>
       </div>
     </div>

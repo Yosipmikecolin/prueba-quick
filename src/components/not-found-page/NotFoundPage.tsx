@@ -15,7 +15,7 @@ const NotFoundPage = () => {
           <p>Esta página no existe</p>
 
           <button onClick={() => navigate("/")}>
-            <img src={IconLeft} width={30} height={30} /> Volver
+            <img src={IconLeft} width={30} height={30} alt="icon-left"/> Volver
           </button>
         </div>
       </div>
