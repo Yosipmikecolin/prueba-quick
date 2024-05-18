@@ -13,7 +13,7 @@ interface Props {
   setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const TablePokemon = ({
+const TablePokemons = ({
   pokemons,
   map,
   refetch,
@@ -94,6 +94,7 @@ const TablePokemon = ({
         />
       </Box>
 
+      <span>Página: {currentPage}</span>
       <div className={classes["container-buttons-paginations"]}>
         <button
           className={
@@ -116,4 +117,4 @@ const TablePokemon = ({
   );
 };
 
-export default TablePokemon;
+export default TablePokemons;

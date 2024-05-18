@@ -3,7 +3,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useMapQuery } from "../../api/queries/querie-pokemon";
 import classes from "./Pokemons.module.css";
-import { MapPokemons, TablePokemon } from "./components";
+import { MapPokemons, TablePokemons } from "./components";
 
 const Pokemons: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,7 +18,7 @@ const Pokemons: React.FC = () => {
             <div className={classes.loader} />
           ) : (
             <>
-              <TablePokemon
+              <TablePokemons
                 pokemons={pokemons}
                 map={map}
                 refetch={refetch}
