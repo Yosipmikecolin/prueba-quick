@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import L, { Map } from "leaflet";
 import { LocationData } from "../../../../interfaces";
 import classes from "./MapPokemons.module.css";
+import Icon from "/images/icon-location.png";
 
 interface Props {
   pokemons?: LocationData[];
@@ -28,8 +29,15 @@ const MapPokemons = ({ pokemons, currentPage, setMap }: Props) => {
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(map);
 
+      const customIcon = L.icon({
+        iconUrl: Icon, 
+        iconSize: [25, 25],
+        iconAnchor: [16, 32], 
+        popupAnchor: [0, -32],
+      });
+
       pokemons.forEach((pokemon) => {
-        L.marker([pokemon.lat, pokemon.lng])
+        L.marker([pokemon.lat, pokemon.lng], { icon: customIcon })
           .addTo(map)
           .bindPopup(pokemon.pokemonName);
       });
