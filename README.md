@@ -45,6 +45,7 @@ Todas las vistas han sido diseñadas y optimizadas para garantizar una experienc
 ## Video de explicación  📹
 A continuación, les proporciono un vídeo explicativo que detalla la estructura del proyecto y su funcionalidad. Este recurso visual ofrece una visión completa y detallada de cómo está organizado el proyecto y cómo se interactúa con él.
 
+https://drive.google.com/file/d/1jVNwm8NOWM2sL4xf_6JdD63NAZhIIszP/view?usp=sharing
 
 
 
@@ -53,5 +54,4 @@ A continuación, les proporciono un vídeo explicativo que detalla la estructura
 
 
 
-
-⌨️ con ❤️ por [Yosip Parrado ]( https://github.com/Yosipmikecolin😊
+⌨️ con ❤️ por [Yosip Parrado ]( https://github.com/Yosipmikecolin)😊
