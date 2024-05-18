@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router";
 import { Login, Pokemons } from "./views";
 import { useAuth } from "./hooks";
-import { NotFoundPage, PrivateRoute, Spiner } from "./components";
+import { Alerts, NotFoundPage, PrivateRoute, Spiner } from "./components";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -35,6 +35,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       )}
+      <Alerts/>
     </main>
   );
 }
