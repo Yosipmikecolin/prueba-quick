@@ -34,12 +34,12 @@ export const fetchPokemonEncounter = async (page: number) => {
         const { data: thirdResult } = await axios.get<ThirdResult[] | []>(
           secondResult.location_area_encounters
         );
-
         return {
           id: Number(pokemonId),
           lat: coordinates.lat,
           lng: coordinates.lng,
           pokemonName: pokemon.name,
+          image: secondResult.sprites.front_default,
           location: thirdResult.length
             ? thirdResult[0].location_area.name
             : "Sin ubicación",

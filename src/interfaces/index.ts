@@ -17,10 +17,10 @@ export interface Pokemon {
   count: number;
   next: string;
   previous: string;
-  results: Result1[];
+  results: Result[];
 }
 
-export interface Result1 {
+export interface Result {
   name: string;
   url: string;
 }
@@ -28,15 +28,16 @@ export interface Result1 {
 export interface SecondResult {
   moves: { move: Move }[];
   location_area_encounters: string;
+  sprites: { front_default: string };
 }
 
 export interface ThirdResult {
-  location_area:   LocationArea;
+  location_area: LocationArea;
 }
 
 export interface LocationArea {
   name: string;
-  url:  string;
+  url: string;
 }
 
 export interface Move {
