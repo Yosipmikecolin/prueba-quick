@@ -6,6 +6,50 @@
   align-items: center;
 }
 
+.card-header-map {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+}
+
+.button-close-sesion {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  transition: 500ms ease;
+}
+
+.button-close-sesion:hover {
+  background-color: rgb(228, 222, 222);
+}
+
+.card-footer-map {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  font-family: "Poppins-Regular";
+}
+
+.card-footer-map > span:nth-child(2) a {
+  margin-left: 10px;
+  color: #5356ff;
+}
+
 .card-map {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
