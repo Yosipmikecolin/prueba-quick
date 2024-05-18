@@ -34,9 +34,6 @@ https://prueba-quick-mauve.vercel.app/
 Todas las vistas han sido diseñadas y optimizadas para garantizar una experiencia fluida y atractiva, incluso en dispositivos con pantallas pequeñas.
 
 
-![Diseño responsivo](https://drive.google.com/file/d/13khia7_5WbL72ckwhJsy-OiplksNvj3W/view?usp=sharing)
-
-
 
 
 
