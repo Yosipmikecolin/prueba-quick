@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import L, { Map } from "leaflet";
-import "leaflet/dist/leaflet.css";
 import { LocationData } from "../../../../interfaces";
 import classes from "./MapPokemons.module.css";
 
