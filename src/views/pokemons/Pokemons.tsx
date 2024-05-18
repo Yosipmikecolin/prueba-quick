@@ -8,6 +8,7 @@ const PokemonMap: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const { data, refetch } = useMapQuery(currentPage);
 
+  console.log("data",data)
   useEffect(() => {
     if (mapRef.current && data) {
       const map = L.map(mapRef.current, {
