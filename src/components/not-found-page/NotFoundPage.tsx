@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router";
 
 //@ts-ignore
-import ImageNotFound from "/public/images/not-found.png";
+import ImageNotFound from "/images/not-found.png";
 //@ts-ignore
-import IconLeft from "/public/images/icon-left.png";
+import IconLeft from "/images/icon-left.png";
 import classes from "./NotFoundPage.module.css";
 
 const NotFoundPage = () => {

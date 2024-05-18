@@ -5,8 +5,8 @@ import { useMapQuery } from "../../api/queries/querie-pokemon";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import classes from "./Pokemons.module.css";
 import { Box } from "@mui/material";
-//@ts-ignore
-import IconEye from "/public/images/icon-eye.png";
+import IconEye from "/images/icon-eye.png";
+import IconLeft from "/images/icon-left.png";
 
 const Pokemons: React.FC = () => {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -116,7 +116,6 @@ const Pokemons: React.FC = () => {
               pageSizeOptions={[10]}
               checkboxSelection
               disableRowSelectionOnClick
-              paginationMode="server"
               hideFooterPagination
               hideFooter
             />
@@ -127,13 +126,13 @@ const Pokemons: React.FC = () => {
               className={classes["button-pagination"]}
               onClick={handlePrevPage}
             >
-              Anterior página
+              <img src={IconLeft} width={30} />
             </button>
             <button
               className={classes["button-pagination"]}
               onClick={handleNextPage}
             >
-              Siguiente página
+              <img src={IconLeft} width={30} />
             </button>
           </div>
         </div>

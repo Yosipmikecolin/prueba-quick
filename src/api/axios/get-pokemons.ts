@@ -8,13 +8,12 @@ import {
 import { getRandomCoordinates } from "../../utils";
 
 export const fetchPokemonEncounter = async (page: number) => {
-  let limit, offset;
+  let limit = 10,
+    offset;
 
   if (page === 1) {
-    limit = 10;
     offset = 0;
   } else {
-    limit = page * 10;
     offset = page * 10 - 10;
   }
 
