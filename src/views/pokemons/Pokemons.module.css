@@ -10,12 +10,14 @@
   background-color: black;
   color: white;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   box-sizing: border-box;
   padding: 20px;
   position: absolute;
   top: 0;
+  font-family: "Poppins-Bold";
 }
 
 .button-close-sesion {
@@ -40,7 +42,7 @@
   width: 100%;
   box-sizing: border-box;
   padding: 20px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   font-family: "Poppins-Regular";
 }
@@ -104,6 +106,7 @@
     flex-direction: column;
     height: 1000px;
     width: 800px;
+    margin: 100px 0px;
   }
 }
 
@@ -111,5 +114,21 @@
   .card-map {
     width: 100%;
     overflow: hidden;
+  }
+}
+
+@media (max-width: 475px) {
+  .card-footer-map > span:nth-child(1) {
+    display: none;
+  }
+}
+
+@media (max-width: 337px) {
+  .card-header-map {
+    justify-content: flex-end;
+  }
+
+  .card-header-map > h2 {
+    display: none;
   }
 }

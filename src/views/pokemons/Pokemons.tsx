@@ -1,12 +1,14 @@
 import React, { useCallback, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { useNavigate } from "react-router";
+
 import { useMapQuery } from "../../api/queries/querie-pokemon";
-import classes from "./Pokemons.module.css";
+import { useAuth } from "../../hooks";
+
 import { MapPokemons, TablePokemons } from "./components";
 import IconClose from "/images/icon-close-sesion.png";
-import { useNavigate } from "react-router";
-import { useAuth } from "../../hooks";
+import classes from "./Pokemons.module.css";
 
 const Pokemons: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -24,6 +26,7 @@ const Pokemons: React.FC = () => {
   return (
     <section className={classes["container-pokemons"]}>
       <div className={classes["card-header-map"]}>
+        <h2>POKEMONS</h2>
         <button
           className={classes["button-close-sesion"]}
           onClick={closeSesion}

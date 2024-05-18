@@ -1,9 +1,9 @@
 import { Box } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { LocationData } from "../../../../interfaces";
-import classes from "./TablePokemons.module.css";
 import IconEye from "/images/icon-eye.png";
 import IconLeft from "/images/icon-left.png";
+import classes from "./TablePokemons.module.css";
 
 interface Props {
   pokemons?: LocationData[];

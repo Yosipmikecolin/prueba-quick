@@ -1,12 +1,12 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-
-import classes from "./Login.module.css";
-import { Inputs } from "../../interfaces";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router";
+
+import { Inputs } from "../../interfaces";
 import { SchemaLogin } from "../../schemas";
 import { useAuth } from "../../hooks";
-import { useNavigate } from "react-router";
+import classes from "./Login.module.css";
 
 const Login = () => {
   const { setUser } = useAuth();
