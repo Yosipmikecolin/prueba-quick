@@ -2,22 +2,64 @@ import React, { useEffect, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useMapQuery } from "../../api/queries/querie-pokemon";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import classes from "./Pokemons.module.css";
+import { Box } from "@mui/material";
+//@ts-ignore
+import IconEye from "/public/images/icon-eye.png";
 
-const PokemonMap: React.FC = () => {
+const Pokemons: React.FC = () => {
   const mapRef = useRef<HTMLDivElement>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const { data, refetch } = useMapQuery(currentPage);
+  const [map, setMap] = useState<L.Map | null>(null);
+  const { data: pokemons, refetch } = useMapQuery(currentPage);
+
+  const columns: GridColDef[] = [
+    { field: "id", headerName: "ID" },
+    {
+      field: "pokemonName",
+      headerName: "Nombre",
+      width: 150,
+    },
+    {
+      field: "location",
+      headerName: "Localización",
+      width: 150,
+    },
+    {
+      field: "see",
+      headerName: "Ubicacíon",
+      width: 150,
+      renderCell: (params) => (
+        <button
+          className={classes["button-map"]}
+          onClick={() => handleZoomToLocation(params.row.lat, params.row.lng)}
+        >
+          <img src={IconEye} width={20} height={20} />
+        </button>
+      ),
+    },
+
+    {
+      field: "image",
+      headerName: "Imagen",
+      width: 150,
+      renderCell: (params) => (
+        <img src={params.row.image} width={50} height={50} />
+      ),
+    },
+  ];
 
   useEffect(() => {
-    if (mapRef.current && data) {
-      const map = L.map(mapRef.current, {
-        scrollWheelZoom: false,
-      }).setView([0, 0], 2);
+    if (mapRef.current && pokemons) {
+      const map = L.map(mapRef.current, { scrollWheelZoom: false }).setView(
+        [0, 0],
+        2
+      );
 
       const southWest = L.latLng(-90, -180);
       const northEast = L.latLng(90, 180);
       const bounds = L.latLngBounds(southWest, northEast);
-
       map.setMaxBounds(bounds);
 
       L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -25,17 +67,18 @@ const PokemonMap: React.FC = () => {
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(map);
 
-      data.forEach((pokemon) => {
+      pokemons.forEach((pokemon) => {
         L.marker([pokemon.lat, pokemon.lng])
           .addTo(map)
           .bindPopup(pokemon.pokemonName);
       });
 
+      setMap(map);
       return () => {
         map.remove();
       };
     }
-  }, [data]);
+  }, [pokemons]);
 
   const handleNextPage = () => {
     setCurrentPage((prev) => prev + 1);
@@ -49,13 +92,55 @@ const PokemonMap: React.FC = () => {
     }
   };
 
+  const handleZoomToLocation = (lat: number, lng: number) => {
+    if (map) {
+      map.setView([lat, lng], 5);
+    }
+  };
+
   return (
-    <div>
-      <div ref={mapRef} style={{ height: 800, width: 1200 }} />
-      <button onClick={handlePrevPage}>Anterior página</button>
-      <button onClick={handleNextPage}>Siguiente página</button>
-    </div>
+    <section className={classes["container-pokemons"]}>
+      <div className={classes["card-map"]}>
+        <div className={classes["card-pokemons"]}>
+          <Box>
+            <DataGrid
+              rows={pokemons ?? []}
+              columns={columns}
+              initialState={{
+                pagination: {
+                  paginationModel: {
+                    pageSize: 10,
+                  },
+                },
+              }}
+              pageSizeOptions={[10]}
+              checkboxSelection
+              disableRowSelectionOnClick
+              paginationMode="server"
+              hideFooterPagination
+              hideFooter
+            />
+          </Box>
+
+          <div className={classes["container-buttons-paginations"]}>
+            <button
+              className={classes["button-pagination"]}
+              onClick={handlePrevPage}
+            >
+              Anterior página
+            </button>
+            <button
+              className={classes["button-pagination"]}
+              onClick={handleNextPage}
+            >
+              Siguiente página
+            </button>
+          </div>
+        </div>
+        <div ref={mapRef} className={classes.map} />
+      </div>
+    </section>
   );
 };
 
-export default PokemonMap;
+export default Pokemons;
