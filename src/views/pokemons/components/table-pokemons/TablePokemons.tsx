@@ -34,7 +34,7 @@ const TablePokemon = ({
 
   const handleZoomToLocation = (lat: number, lng: number) => {
     if (map) {
-      map.setView([lat, lng], 5);
+      map.setView([lat, lng], 4);
     }
   };
 
@@ -75,11 +75,12 @@ const TablePokemon = ({
   ];
 
   return (
-    <>
-      <Box>
+    <div className={classes["card-pokemons"]}>
+      <Box sx={{ width: "100%", height: "600px" }}>
         <DataGrid
           rows={pokemons ?? []}
           columns={columns}
+          autoPageSize
           initialState={{
             pagination: {
               paginationModel: {
@@ -87,8 +88,6 @@ const TablePokemon = ({
               },
             },
           }}
-          pageSizeOptions={[10]}
-          checkboxSelection
           disableRowSelectionOnClick
           hideFooterPagination
           hideFooter
@@ -97,7 +96,11 @@ const TablePokemon = ({
 
       <div className={classes["container-buttons-paginations"]}>
         <button
-          className={classes["button-pagination"]}
+          className={
+            currentPage === 1
+              ? classes["button-pagination-disabled"]
+              : classes["button-pagination"]
+          }
           onClick={handlePrevPage}
         >
           <img src={IconLeft} width={30} />
@@ -109,7 +112,7 @@ const TablePokemon = ({
           <img src={IconLeft} width={30} />
         </button>
       </div>
-    </>
+    </div>
   );
 };
 

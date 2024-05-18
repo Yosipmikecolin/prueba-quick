@@ -17,7 +17,7 @@ const MapPokemons = ({ pokemons, currentPage, setMap }: Props) => {
     if (mapRef.current && pokemons) {
       const map = L.map(mapRef.current, { scrollWheelZoom: false }).setView(
         [0, 0],
-        2
+        3
       );
 
       const southWest = L.latLng(-90, -180);

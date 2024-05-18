@@ -1,9 +1,9 @@
 .container-pokemons {
-  width: 100%;
   height: 100vh;
   background-color: #e2e2e2;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .card-map {
@@ -18,15 +18,54 @@
   padding: 10px;
   width: 1500px;
   height: 700px;
-  margin-top: 200px;
 }
 
-.card-pokemons {
-  width: 800px;
-  height: 100%;
-  border-radius: 10px;
+.loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #505152;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 500ms linear infinite;
+  margin: auto;
 }
 
-.card-pokemons * {
-  font-family: "Poppins-Regular";
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1559px) {
+  .container-pokemons {
+    padding: 40px;
+  }
+
+  .card-map {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1285px) {
+  .container-pokemons {
+    align-items: baseline;
+    height: auto;
+  }
+
+  .card-map {
+    flex-direction: column;
+    height: 1000px;
+    width: 800px;
+  }
+}
+
+@media (max-width: 889px) {
+  .card-map {
+    width: 100%;
+    overflow: hidden;
+  }
 }

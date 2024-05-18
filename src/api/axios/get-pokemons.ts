@@ -5,6 +5,7 @@ import {
   SecondResult,
   ThirdResult,
 } from "../../interfaces";
+
 import { getRandomCoordinates } from "../../utils";
 
 export const fetchPokemonEncounter = async (page: number) => {
@@ -41,7 +42,7 @@ export const fetchPokemonEncounter = async (page: number) => {
           image: secondResult.sprites.front_default,
           location: thirdResult.length
             ? thirdResult[0].location_area.name
-            : "Sin ubicación",
+            : "Sin Localización",
           powers: secondResult.moves.length
             ? secondResult.moves.slice(0, 10).map((i) => i.move.name)
             : [],

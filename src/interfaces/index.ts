@@ -1,11 +1,8 @@
-/* LOGIN */
-
 export interface Inputs {
   username: string;
   password: string;
 }
 
-/* POKEMONS */
 export interface LocationData {
   lat: number;
   lng: number;
